@@ -4,7 +4,7 @@ import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
 import Statistic from "./Statistic/Statistic"
 import SectionTitle from "./Section title/SectionTitle";
 import Notification from "./Notifications/Notificationds";
-import styles from './featback.module.css'
+
 
 const featbackOptions = ["good", "neutral","bad"];
 
