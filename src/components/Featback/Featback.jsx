@@ -4,9 +4,7 @@ import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
 import Statistic from "./Statistic/Statistic"
 import SectionTitle from "./Section title/SectionTitle";
 import Notification from "./Notifications/Notificationds";
-
-
-const featbackOptions = ["good", "neutral","bad"];
+import styles from ".//featback.module.css"
 
 class Featback extends Component {
     state = {
@@ -29,8 +27,7 @@ class Featback extends Component {
     }
    
     calcFeatbackNumber(propName) {
-           const value = this.state[propName]; // this.state.democrats
-    
+           const value = this.state[propName]; 
       return value;
   }
 
@@ -46,18 +43,17 @@ class Featback extends Component {
 
   render(){
     const total = this.countTotalFeedback()
-    const goodFeatback = this.calcFeatbackNumber("good");
-    const badFeatback = this.calcFeatbackNumber("bad");
-    const neutralFeatback = this.calcFeatbackNumber("neutral")
     const rezult= this.countPositiveFeedbackPercentage("good")
     return(<>
         <SectionTitle title = "Please leave featback">
-              <FeedbackOptions options={featbackOptions}  onLeaveFeedback={this.leaveFeatback}/>
+            <div className={styles.option}>
+              <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.leaveFeatback}/>
+              </div>
         </SectionTitle>
         
         <SectionTitle title = "Statisticks"> 
         {this.countTotalFeedback() > 0 ? (
-        <Statistic total ={total} good={goodFeatback} neutral= {neutralFeatback} bad={badFeatback} positivePercentage = {rezult}/> ) : (
+        <Statistic total ={total} good={this.state.good}  neutral= {this.state.neutral}  bad={this.state.bad}  positivePercentage = {rezult}/> ) : (
             <Notification message="No feedback given" />
           )}
         </SectionTitle>

@@ -4,12 +4,9 @@ import PropTypes from "prop-types"
 
 const Button= ({children, onClick, type}) => {
     console.log (children)
-        return <button onClick={onClick} className={styles.btn} type={type}>{children}</button>
+        return<button onClick={onClick} className={styles.btn} type={type}>{children}</button>
     }
-    // const Button = ({children, onClick, type}) => {
-    //     // console.log(children);
-    //     return <button onClick={onClick} className={styles.btn} type={type}>{children}</button>
-    // }
+  
 export default Button;
 
 Button.defaultProps = {
